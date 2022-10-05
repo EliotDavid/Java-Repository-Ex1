@@ -144,40 +144,40 @@ public class Main {
 
             int index = 0;
 
-            while(true){
+            while (true) {
 
-                boolean  check = true;
-                int num = (int)Math.random() * 100 + 1;
+                boolean check = true;
+                int num = (int) Math.random() * 100 + 1;
 
-                for(int i = 0; i < numbers.length; ++i){
-                    if(numbers[i] == num){
+                for (int i = 0; i < numbers.length; ++i) {
+                    if (numbers[i] == num) {
                         check = false;
                         break;
                     }
 
-                    if(check == true){
+                    if (check == true) {
                         numbers[index] = num;
                         ++index;
                     }
                 }
 
-                if(index == 10){
+                if (index == 10) {
                     break;
                 }
 
-                for(int i = 0; i < numbers.length; ++i){
+                for (int i = 0; i < numbers.length; ++i) {
                     System.out.println(numbers[i]);
                 }
 
                 // ======================================== 지금까지 난수 생성 완료
-                
+
                 // ======================================== 정렬 시작
                 // <번호를 오름차순이나 내림차순 정렬할 때 원소 두개가 안 맞물리게 하나는 0번 인덱스부터 움직이게 하고 하나는 1번 인덱스부터 움직이게 해서
                 // 0번 인덱스부터 움직이는 원소는 마지막 원소까지 가면 안되니 그 전 단계까지만 가게 하고 
                 // 1번 인덱스부터 움직이는 원소는 마지막 원소까지 움직이게 해서 앞의 원소와 비교하게 해야함
-                for(int i = 0; i < numbers.length -1; ++i){
-                    for(int j = (i +1); j < numbers.length; ++j){
-                        if(numbers[i] < numbers[j]){
+                for (int i = 0; i < numbers.length - 1; ++i) {
+                    for (int j = (i + 1); j < numbers.length; ++j) {
+                        if (numbers[i] < numbers[j]) {
                             int temp = numbers[i];
                             numbers[i] = numbers[j];
                             numbers[j] = temp;
@@ -188,13 +188,52 @@ public class Main {
             //======================================= 정렬 끝
             //<향상된 for문 사용법>
             System.out.println("정렬된 값을 출력합니다");
-            for(int element : numbers){
+            for (int element : numbers) {
                 System.out.println(element);
             }
+        }
+
+
+        System.out.println("===============================");
 
             // ======= [ 숙제 : 선택정렬을 통해서 반대차순으로 정렬 한 번 해보기 ] ================
+             {
+                 //[버블 정렬]
+                int[] numbers = new int[10];
+
+                //[일단 배열에 난수를 저장]
+                for(int i = 0; i <= numbers.length -1; ++i){
+                    int num = (int) (Math.random() * 100) + 1;
+                    numbers[i] = num;
+                    System.out.println(numbers[i]);
+                }
+                // [그런 다음 버블정렬 시작]
+                for(int i = 0; i <= numbers.length -1; ++i){
+                    if(numbers[i] > numbers[i +1]){
+                        numbers[i] = numbers[i +1];
+
+                    }
+                   // for(int i = 0; i < numbers.length -1; ++i)
+                        //for(int i = 0; i < numbers.length -1; ++i)
+                            //for(int i = 0; i < numbers.length -1; ++i)
+                                //for(int i = 0; i < numbers.length -1; ++i)
+                                    //for(int i = 0; i < numbers.length -1; ++i)
+                                        //for(int i = 0; i < numbers.length -1; ++i)
+                                            //for(int i = 0; i < numbers.length -1; ++i)
+                }
+
+
+
+
+
+
+
+
+             }
+
+
+
         }
 
 
     }
-}
