@@ -15,13 +15,17 @@ public class Main {
         for(int i = 0; i < numbers.length -1; ++i){ // 그리고 나서 일단 이 배열 속에 중복된 번호가 있는지 체크한다
             for(int j = 1; j < numbers.length; ++j){ // if문 위에 while(true)를 넣어야되나?
                 if(numbers[i] == numbers[j]){
-                   numbers[j] = (int)(Math.random() * 100) +1;
+                    numbers[j] = (int)(Math.random() * 100) +1;
+                    }
                 }
             }
+
+        System.out.println(numbers);
+
         }
+
         
 
 
 
     }
-}
