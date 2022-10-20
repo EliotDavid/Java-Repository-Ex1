@@ -29,23 +29,28 @@ public class ManagementMain {
 
 
         // ** 멤버 객체를 생성한다 
-        Member member = new Member();
+        //Member member = new Member();
         
         //** 생성한 멤버 객체에 필드값을 셋팅한다
-        member.setAge(32);
-        member.setUserName("홍길동");
+        //member.setAge(32);
+        //member.setUserName("홍길동");
 
         //** 멤버 객체와 has - a  관계인 Group class를 생성한다
-        Group group = new Group();
+        //Group group = new Group();
         
         //** 생성된 클래스의 필드값을 셋팅한다
-        group.set_class("K");
-        group.setSubject("JAVA");
+        //group.set_class("K");
+        //group.setSubject("JAVA");
 
         //** 셋팅된 클래스를 멤버 클래스에 맵핑한다
-        member.setGroup(group);
+        //member.setGroup(group);
 
         //member.setGroup(new Group());
+
+        Page page = new Page();
+        page.SetData();
+
+        Member member = Singleton.GetInstance().getMember();
 
 
         // ** 멤버의 필드값을 받아온다
