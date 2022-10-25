@@ -19,10 +19,27 @@ repositories {
 }
 
 dependencies {
+	// ** HTML을 사용하기 위한 라이브러리를 추가한다
+	// ** html 파일 엔진이라고 함
+	// ** 웰컴페이지를 제외한 나머지 html파일들을 template 파일에서 관리한다는 엔진임
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	//** 웹어플리케이션서버(:톰캣이 들어있는 서버)에 해당한다
+	//** 일명 tomcat이라고 불리고 얘안에 tomcat이 들어있음
+	//** 웹서버를 사용할 수 있는
+	//** 웹 서버랑 톰캣이랑 별개인데, 웹 서버는 말그대로 진짜 서버이고 tomcat은 프로그램(어플리케이션)임
+	// ** 톰캣을 올려라하는 말은 웹어플리케이션서버를 올려라는 말임
+	// ** starter-web이 추가된 의미는 서버를 사용할 수 있게 된거고(서버를 사용할 수 있게 준비된 상태가 된 상태), 아직 사용중인 상태는 아닌 거임
+	// ** 
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	
+	// ** Getter, Setter를 만들어주는 애임
+	// ** 얘는 라이브러리를 사용하기 위해서 데리고 오는 애고
 	compileOnly 'org.projectlombok:lombok'
+	// ** 얘는 그 라이브러리를 어노테이션으로 사용하기 위해서 데리고 오는 애임
 	annotationProcessor 'org.projectlombok:lombok'
+
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
