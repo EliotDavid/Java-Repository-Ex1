@@ -6,7 +6,11 @@
 </head>
 <body>
     <form action="create" method="post"> <!--post방식이라서 @GetMapping이 아니라 @PostMapping으로 해줘야 됨-->
-    Hello World!
+                                        <!-- post방식의 create로 맵핑되어 있는 @PostMapping으로 이동해라는 뜻-->
+        <input type="text" placeholder="이름 입력" name="Name"/>
+
+
+        <button type="submit">회원가입</button>
 
     </form>
 </body>

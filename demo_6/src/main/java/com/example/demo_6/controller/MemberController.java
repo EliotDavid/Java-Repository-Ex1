@@ -19,17 +19,28 @@ public class MemberController {
 
 
     @GetMapping("new") // ** 어노테이션 옆()에 new를 적는건 : new 페이지를 찾아서 실행한다는 뜻이 아닌 것 같음
-    public String newMember(){
-        return "new";
+    public String newMember(){ //어노테이션 옆에 new가 들어오면 new를 맵핑해서 이 함수를 호출시켜라는 의미
+        return "new"; // 여기서 new를 리턴받으면 new.html로 이동을 하고
+        // new.html에서 create함수로 이동하게 만들어놓은 구조라고하는데
+        // create에는 지금 return이 아무것도 없어서 아무것도 안 뜨는거라고 함
+
+
     }
 
     //@GetMapping("create")
     @PostMapping("create")
     public String createMember(){
 
-        Member member = new Member("홍길동");
-        memberRepository.save(member);
+        Member member = new Member("홍길동", 32, "1004@heaven.mail");
+        //** 홍길동의 나이정보
+        //** 홍길동의 이메일정보
+        //** 까지 받아서 출력하는 것
+
+        memberRepository.save(member); // 레파지토리 안에 DB가 있음
+        // 그래서 이 레파지토리가 실행이되면 알아서 DB로 쏴줌
         System.out.println("createMember");
-        return "";
+        return "create";
+
+
     }
 }

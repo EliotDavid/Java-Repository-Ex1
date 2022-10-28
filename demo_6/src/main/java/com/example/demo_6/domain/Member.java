@@ -18,17 +18,31 @@ import javax.persistence.*;
 @Getter @Setter
 @NoArgsConstructor // 기본 생성자를 만들어준다
 @Table(name = "Member") // 지금은 Member를 소문자로 썼지만한 번씩 대문자만 쓰는 경우들이 있으면 대문자로 바꿔줘야함
-                        //
+                        // 테이블명을 Member로 해라라는 뜻
 public class Member {
     @Id @GeneratedValue // ** @Id 어노테이션을 쓰면서 각 객체에 Id를 부여해주는데
                         // ** 여기에 @GeneratedValue까지 해주면 다음부터 생기는 객체에게 자동으로 Id를 부여해줌 
                         // ** 그리고 아이디 데이터타입이 문자열이어도 자동으로 부여해줄거라고 하는데 확실치 않음
     private long id;
 
+    @Column(name = "AGE") // name : 컬럼의 이름을 뭘로 지을거냐라는 뜻
+    private Integer age;
+    // ** 사칙연산이 가능하냐 안 가능하냐
+    // ** null 값이 대입이 가능하냐 안 가능하냐
+
+    @Column(name = "EMAIL")
+    private String email;
+
     @Column(name = "NAME")
     private String userName;
 
-    public Member(String userName){ // 복사 생성자
+    public Member(String userName, Integer age, String email){ // 복사 생성자
+
         this.userName = userName;
+        this.age = age;
+        this.email = email;
     }
+
+
+
 }
