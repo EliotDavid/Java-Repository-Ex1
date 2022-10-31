@@ -25,24 +25,35 @@ public class Member {
                         // ** 그리고 아이디 데이터타입이 문자열이어도 자동으로 부여해줄거라고 하는데 확실치 않음
     private long id;
 
-    @Column(name = "AGE") // name : 컬럼의 이름을 뭘로 지을거냐라는 뜻
-    private Integer age;
+    //@Column(name = "AGE") // name : 컬럼의 이름을 뭘로 지을거냐라는 뜻
+    //private Integer age;
     // ** 사칙연산이 가능하냐 안 가능하냐
     // ** null 값이 대입이 가능하냐 안 가능하냐
 
-    @Column(name = "EMAIL")
-    private String email;
+    //@Column(name = "EMAIL")
+    //private String email;
 
     @Column(name = "NAME")
     private String userName;
 
-    public Member(String userName, Integer age, String email){ // 복사 생성자
+    //public Member(String userName, Integer age, String email){ // 복사 생성자
 
+        //this.userName = userName;
+        //this.age = age;
+        //this.email = email;
+    //}
+
+
+    public Member(String userName) {
         this.userName = userName;
-        this.age = age;
-        this.email = email;
     }
-
-
-
 }
+
+
+// ** [영속성] : 영속성에는 4가지가 있음
+
+// ** 영속 : Entity Manager(Container)에 포함된 상태
+// ** 비 영속 : Entity Manager(Container)에 포함되기 전 상태
+// ** 준 영속 : Entity Manager(Container)에 포함되었었고 현재는 포함되지 않은 상태 
+// ** 삭제 : 삭제된 상태
+
