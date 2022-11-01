@@ -15,7 +15,7 @@ import javax.persistence.*;
         // ** 그래서 Entity가 들어가있으면 @Id를 꼭 적어줘야함
         // ** @GeneratedValue : key를 1~10같이 (컴퓨터가?)자동으로 넣겠다는 뜻
 
-@Getter @Setter
+@Getter //@Setter // ** 원래는 setter를 잘 안 쓴다고 함
 @NoArgsConstructor // 기본 생성자를 만들어준다
 @Table(name = "Member") // 지금은 Member를 소문자로 썼지만한 번씩 대문자만 쓰는 경우들이 있으면 대문자로 바꿔줘야함
                         // 테이블명을 Member로 해라라는 뜻

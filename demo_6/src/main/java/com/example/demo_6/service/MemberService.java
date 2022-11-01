@@ -1,11 +1,14 @@
 package com.example.demo_6.service;
 
 import com.example.demo_6.domain.Member;
+import com.example.demo_6.dto.MemberDto;
 import com.example.demo_6.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 
 @Transactional // ** 변경사항에 대한 저장을 해주는 것
@@ -21,9 +24,15 @@ public class MemberService { // ** 서비스계층에서 레파지토리로 넘�
     // ** 영속상태가 필요함
     // ** 그래서 엔티티매니저가 들어와야함
 
-    public void insertMember(Member member){ // ** 오류나는거는 임폴트해주면 됨 / 클래스로 받아와야함
-        memberRepository.insertMember(member);
 
+    public void insertMember(MemberDto dto){ // ** 오류나는거는 임폴트해주면 됨 / 클래스로 받아와야함
+        memberRepository.insertMember(
+                new Member(dto.getUserName()));
+
+    }
+
+    public List<Member> findAll(){
+        return memberRepository.findAll();
     }
     
 }

@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<!--회원가입-->
     <form action="create" method="post" th:object="${object}"> <!--post방식이라서 @GetMapping이 아니라 @PostMapping으로 해줘야 됨-->
                                         <!-- post방식의 create로 맵핑되어 있는 @PostMapping으로 이동해라는 뜻-->
         <input type="text" placeholder="이름 입력" name="userName"/> <!-- Name/에 받은 값을 submit이 데이터를 보내는데 그거를 action="create"로 보낸다는 뜻-->
