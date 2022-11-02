@@ -12,6 +12,7 @@ import java.util.List;
 
 
 @Transactional // ** 변경사항에 대한 저장을 해주는 것
+                // ** 자동으로 변경된 작업들을 저장해주는 것
 
 @Service // ** 이 클래스를 서비스로 쓰겠다는 뜻
 public class MemberService { // ** 서비스계층에서 레파지토리로 넘겨줄거임
@@ -33,6 +34,6 @@ public class MemberService { // ** 서비스계층에서 레파지토리로 넘�
 
     public List<Member> findAll(){
         return memberRepository.findAll();
-    }
+    } // 홍길동을 검색했을 때 1명만 나오는게 아니라 여러명이 나올거기 때문에 이럴 땐 List로 받아야됨
     
 }
