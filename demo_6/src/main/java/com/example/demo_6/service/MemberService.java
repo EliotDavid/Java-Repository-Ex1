@@ -35,5 +35,12 @@ public class MemberService { // ** 서비스계층에서 레파지토리로 넘�
     public List<Member> findAll(){
         return memberRepository.findAll();
     } // 홍길동을 검색했을 때 1명만 나오는게 아니라 여러명이 나올거기 때문에 이럴 땐 List로 받아야됨
-    
+
+    public List<Member> findName(MemberDto dto) { // ** dto로 받아서 name으로 검색하려고 만든거임
+        return  memberRepository.findName(dto.getUserName());
+    }
+
+    public void deleteMember(String userName) {
+        memberRepository.deleteMember(userName);
+    }
 }

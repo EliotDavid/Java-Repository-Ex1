@@ -33,8 +33,22 @@ public class MemberRepository{ // **레파지토리에서 컨테이너로 데이
         return em.createQuery("select m from Member m", Member.class).getResultList();
     }
 
-
+    public List<Member> findName(String userName){
+        return em.createQuery("select m from Member m where m.userName = : name", Member.class).setParameter("name", userName).getResultList();
+        // ** 인자가 바로 setParameter로 들어가서 setParameter를 쓰고 나면 username이 name으로 담아서 쿼리의 name으로 되어서 name이 m.userName이 되겠다라는 구조임
+        // ** 변수의 값을 쿼리로 바로 저장시켜서 바로 Db에 저장시켜주는건가?
     }
+
+    public void deleteMember(String userName){
+        List<Member> members = findName(userName);
+
+        for(int i = 0; i < members.size(); ++ i){
+            em.remove(members.get(i));
+        }
+    }
+
+}
+
 
 
 

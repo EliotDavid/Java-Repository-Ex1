@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-  <form action="findAll" method="post" th:object="${object}">
-    <input type="text" placeholder="이름 입력" th:field="*{userName}"/>
-    <button type="submit"></button>
+<body> <!--회원 이름 조회-->
+  <form action="findName" method="post" th:object="${object}">
+    <input type="text" placeholder="이름 입력" name="userName"/>
+    <button type="submit">회원 검색</button>
   </form>
 </body>
 </html>

@@ -86,9 +86,30 @@ public class MemberController {
     @GetMapping("find") // ** 괄호안의 그냥 "find"은 name = "find"인데 생략된거라고 함. 둘 다 같은거임
     public String find(Model model){ //** model뭐임?
 
-        model.addAttribute("object", new MemberDto()); // ** model이랑 연결시켜주는 과정
-        return "findMember";
+        //model.addAttribute("object", new MemberDto()); // ** model이랑 연결시켜주는 과정
+        return "find";
         
+    }
+
+    @PostMapping("findName")
+    public String findName(Model model, MemberDto dto){ //** 이거 뭔 뜻임? : Model 클래스는 뷰와 컨트롤러 사이에서 뷰에서 보낸 데이터를 컨트롤러에 보내주기 위해 연결장치가 필요한데 그 연결장치를 Model클래스라고 한다
+        List<Member> members = memberService.findName(dto); // 홍길동으로 검색하면 홍길동이 1명이 아닐 수 있고 여러명일 수 있으니 List로 나와질거임
+        model.addAttribute("object", members); // ** 이 members를 object로 넘겨줌
+        // ** List<Member> : 객체의 상태의 데이터를 여러개를 관리하고 싶은데 이게 따로 있으면 내가 관리하기 복잡함
+        // ** 그래서 이걸 따로 두는게 아니라 하나로 묶고 싶음
+        // ** 근데 이 데이터들이 각자 다른 데이터들임
+        // ** 근데 얘네들이 다 다르지만 이거를 알파벳 List라는 애로 하나로 묶으고 싶은거임
+        // ** 그래서 List.뭔가를 찍어서 뭔가를 만들어서 1번째 2번째 3번째 4번째
+        // ** List<Memeber>도 컨테이너임 
+        // ** Entitiy Manager도 컨테이너임 
+        // ** List<Member>는 Entity Manager랑 다른 컨테이너임 서로 담고 있는게 달라서
+        // ** 근데 findName에 있는 List<Member>랑 밑에 findAll의 List<Member>이랑 다른 컨테이너라고 함 
+        // ** 똑같은 제품을 담고 있는 서로 다른 컨테이너임 
+        // ** Member라는 제품을 담고 있는 서로 다른 컨테이너
+
+
+        return "findAll";
+
     }
 
     @GetMapping("findAll")
@@ -96,5 +117,18 @@ public class MemberController {
         List<Member> members = memberService.findAll();
         model.addAttribute("object", members); // ** 이 members를 object로 넘겨줌
         return "findAll";
+    }
+
+    @GetMapping("deleteMember")
+    public String deleteMember(){
+
+        return "deleteMember";
+    }
+
+    @PostMapping("deleteMember")
+    public String deleteMember(String userName){ // ** 이름만 받아오는 메서드
+
+        memberService.deleteMember(userName);
+        return "redirect:/";
     }
 }
