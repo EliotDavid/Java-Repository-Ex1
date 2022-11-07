@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org"><!--xmlns옆에 th가 들어가면 thymeleaf를 쓰고 있구나라고 생각하면됨-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="addProduct" method="post" enctype="multipart/form-data"> <!-- 파일 받아오려면 enctype이 속성을 써야함 -->
+        <input type="file" name="file">
+        <button type="submit">등록</button>
+
+
+    </form>
+
+</body>
+</html>
