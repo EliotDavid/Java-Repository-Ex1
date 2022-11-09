@@ -10,7 +10,8 @@ import javax.persistence.PersistenceContext;
 
 //@RequiredArgsConstructor // 얘는 뭐하는 애냐면 final이 붙어 있거나 @NotNull이 붙어있는 필드값에 생성자를 자동으로 생성한다
 @Repository
-public class ProductRepository {
+public class ProductRepository { // 레파지토리는 무조건 C,R(Read),U(Update),D 4개만 있음 
+                                 // R할 떄 쿼리한 번 날라가고 U할 때 쿼리 한 번 더 날라감
 
     @PersistenceContext
     private EntityManager em;

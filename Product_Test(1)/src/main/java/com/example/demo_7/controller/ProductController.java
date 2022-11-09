@@ -32,6 +32,16 @@ public class ProductController {
     } // addProduct.html에서 상품이 맵핑이 되면 이 메서드가 호출됨
 
 
+    @GetMapping("productList")
+    public String showDbList(){
+        return "productList";
+   }
+
+    //@PostMapping("productList")
+    //public String showDbList(){
+        //return "productList";
+    //}
+
 
 
 

@@ -3,6 +3,7 @@ package com.example.demo_7.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 
 @Getter
 @NoArgsConstructor
-@Entity
+@Entity // 얘 자체가 데이터임 / 얘 자체가 DB임 / 얘 자체가 인스턴스임
 public class ImageObject { // 하나의 상품에 대한 게시물
 
 

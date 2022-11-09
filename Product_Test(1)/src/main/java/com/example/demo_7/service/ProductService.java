@@ -17,7 +17,11 @@ import java.util.UUID;
 // 이 Transactioanl이 적용된 클래스안에 어떤 함수에 이 Transactioanl 어노테이션이 적용되어 있으면 쓰기전용까지 같이 하겠다는 뜻
 
 //@RequiredArgsConstructor // 얘는 뭐하는 애냐면 final이 붙어 있거나 @NotNull이 붙어있는 필드값에 생성자를 자동으로 생성한다
-@Service
+
+
+@Service // @Service 어노테이션을 달앚우는 이유는 추상적인계층을 만들어주기 위해 달아주는거임
+            // 그렇게 해서 @Autowired 어노테이션을 통해서 밑에처럼 ProductRepository productRepository를 코드해주면
+            // productRepository가 가지고 있는 메서드들이 이미 암묵적으로 이 클래스에 상속관계처럼 있다는 말임
 public class ProductService {
 
 
@@ -36,7 +40,7 @@ public class ProductService {
         file.transferTo(saved); // images 파일로 저장하라는 코드
 
 
-        ImageObject product = new ImageObject(dto.getTitle(), dto.getContent(), dto.getPrice(), dto.getCount(), filePath, fileName);
+        ImageObject product = new ImageObject(dto.getTitle(), dto.getContent(), dto.getCount(), dto.getPrice(), fileName, filePath);
         productRepository.save(product);
 
 
