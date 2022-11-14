@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--전체 회원 조회-->
+  <tr th:each="member : ${object}">
+    <td th:text="${member.username}"></td>
+  </tr>
+<button type="home" onclick="location.href='index.html'">홈</button>
+</body>
+</html>

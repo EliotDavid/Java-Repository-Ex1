@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--회원 가입-->
+    <form action="create" method="post" th:object="${object}">
+        <input type="text" placeholder="이름 입력" name="username"/>
+        <button type="submit">회원 가입</button>
+    </form>
+</body>
+</html>
