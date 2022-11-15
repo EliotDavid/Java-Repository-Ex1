@@ -22,7 +22,7 @@ public class TestcaseMain {
         b.setName("임꺽정");
         
         // ** A 오브젝트에 B를 연결시킴
-        a.setObjectB(b);
+        a.setObjectB(b); // 이거 이해 안됨 // 위 코드에서 b값들을 패킹했으니 ObjectA에 있는 objectB에 대입시켜줘라는 뜻인가?
 
         System.out.println(a.getObjectB().getId());
 
