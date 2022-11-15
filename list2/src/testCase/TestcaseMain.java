@@ -6,7 +6,33 @@ public class TestcaseMain {
     // O(Order) :
     // M(Member) :
 
-        ObjectA a = new ObjectA(); // ** A 타입의 객체를 생성
+        // ** 오브젝트 A 생성
+        ObjectA a = new ObjectA();
+
+        //** 필드값 초기화
+        a.setId("A");
+        a.setName("홍길동");
+
+        // ** 오브젝터 B 생성
+        ObjectB b = new ObjectB();
+
+        //** 필드값초기화
+        b.setId("B");
+        b.setAge(28);
+        b.setName("임꺽정");
+        
+        // ** A 오브젝트에 B를 연결시킴
+        a.setObjectB(b);
+
+        System.out.println(a.getObjectB().getId());
+
+
+
+
+
+
+
+        //ObjectA a = new ObjectA(); // ** A 타입의 객체를 생성
                                    // new ObjectA()가 생성자를 실행시키는 key임
                                    // 자동이라는 표현은 잘 못된 표현임. 우리가 직접 호출을 하고 있는거임.
                                    // new : 메모리를 할당해주는 연산자
@@ -18,8 +44,8 @@ public class TestcaseMain {
         //a.setObjectB(new ObjectB("홍길동", 34));
 
         // **
-        System.out.println(a.getObjectB().getName()); // ** B로 넘어가면서 그 B에 있는 필드값 중 name값을 호출해라
-        System.out.println(a.getObjectB().getAge());
+        //System.out.println(a.getObjectB().getName()); // ** B로 넘어가면서 그 B에 있는 필드값 중 name값을 호출해라
+        //System.out.println(a.getObjectB().getAge());
         // ** 홍길동과 34가 출력되는 이유 :
         // ** 단방향
 
