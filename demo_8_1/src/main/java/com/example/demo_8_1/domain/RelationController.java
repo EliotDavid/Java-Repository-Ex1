@@ -19,14 +19,25 @@ public class RelationController {
     @GetMapping("main") 
     public String insert(){
 
+        // 회원가입할 떄 주소가 될 수 있고, 전화번호가 될 수 있음. 그리고 서비스로 넘김.
+        // 그리고 오더서비스에서 멤버랑 아카데미를 연결시켜줘야함(멤버랑 아카데미를 다 넣어줘야함)
+
         Academy academy1 = new Academy("메가스터디컴퓨터학원");
         Academy academy2 = new Academy("부산컴퓨터학원");
         Academy academy3 = new Academy("서면컴퓨터학원");
 
         Member member = new Member("홍길동", academy1);
+        // =============================================
+        // 위에는 객치제향이고
+        // =============================================
+        // 아래는 sql임
+
+        //academy2.addMember(member); // 아카데미에서 멤버를 확인하려고 적은 코드
+
+        // 아카데미(쇼핑몰)는 여러 교육과목들을 가지고 있고 그 교육과목(상품)들을 이용하는 고객들(학생들)이 있음
 
         em.persist(member);
-        em.persist(academy1);
+        em.persist(academy1); // 얘가 CRUD임
 
         return "redirect/";
     }
