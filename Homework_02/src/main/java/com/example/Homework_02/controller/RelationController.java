@@ -1,7 +1,10 @@
 package com.example.Homework_02.controller;
 
+import com.example.Homework_02.dto.StudentDto;
+import com.example.Homework_02.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -12,13 +15,21 @@ import javax.transaction.Transactional;
 @Controller
 public class RelationController {
 
-    //@Autowired
-    //private
+    @Autowired
+    private StudentService studentService;
 
-    @GetMapping("index")
+    @GetMapping("addInformation")
     public String index(){
+        return "addInformation";
+    }
+
+    @PostMapping("addInformation")
+    public String addInformation(StudentDto dto){
+        studentService.saveStudentInfo(dto);
         return "redirect:/";
     }
+
+
 
     //@PostMapping("index")
     //public void index(){
