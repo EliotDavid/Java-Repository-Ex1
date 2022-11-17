@@ -2,6 +2,7 @@ package com.example.Homework_02.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 
@@ -16,7 +17,8 @@ public class Student {
 
     // ** 학원은 여러 명의 학생과 연관을 맺는다
     // ** 학생의 정보로 그 학생의 학원정보도 알려면 학생의 클래스가 아카데미클래스를 가지고 있어야 한다(즉, 학생클래스가 아데미클래스를 참조하고 있어야함)
-    @ManyToOne // ** Many : 학생들 to : -> One : 학원 
+    @JoinColumn(name = "academy_Id")
+    @ManyToOne // ** Many : 학생들 to : -> One : 학원
     private Academy academy; 
 
     // ** 필드 + 칼럼
@@ -32,8 +34,8 @@ public class Student {
     @Column(name = "email")
     private String email;
 
-    //@Column(name = "academy_Name")
-    //academy.
+    //@Column(name = "academyName")
+    //private String academyName;
 
 
     // ** 값을 받아와서 대입해줄 복사생성자 생성

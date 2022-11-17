@@ -19,5 +19,5 @@ public class StudentDto {
 
     private String email;
 
-
+    //private String academyName;
 }

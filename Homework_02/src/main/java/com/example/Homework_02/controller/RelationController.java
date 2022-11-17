@@ -1,5 +1,6 @@
 package com.example.Homework_02.controller;
 
+import com.example.Homework_02.dto.AcademyDto;
 import com.example.Homework_02.dto.StudentDto;
 import com.example.Homework_02.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +19,20 @@ public class RelationController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping("addInformation")
+    @GetMapping("insertInformation")
     public String index(){
-        return "addInformation";
+        return "insertInformation";
     }
 
-    @PostMapping("addInformation")
+    @PostMapping("insertStudentInformation")
     public String addInformation(StudentDto dto){
         studentService.saveStudentInfo(dto);
+        return "redirect:/";
+    }
+
+    @PostMapping("insertAcademyInformation")
+    public String addInformation(AcademyDto dto){
+        studentService.saveAcademyInfo(dto);
         return "redirect:/";
     }
 

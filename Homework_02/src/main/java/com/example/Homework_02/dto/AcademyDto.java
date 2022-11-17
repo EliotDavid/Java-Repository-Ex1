@@ -9,4 +9,6 @@ import lombok.Setter;
 public class AcademyDto {
 
     private String academyName;
+
+
 }

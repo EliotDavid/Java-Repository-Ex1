@@ -2,6 +2,7 @@ package com.example.Homework_02.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -17,10 +18,12 @@ public class Academy {
                                      // ** 아래 객체는 Academy타입으로 만들어진 객체, academy와 연결된다
     private List<Student> students = new ArrayList<>();
 
-
+    @JoinColumn
     @Column(name = "academy_Id")
     @Id @GeneratedValue // ** 아카데미에 대한 ID(아카데미의 주키)
     private long id;
+
+
     @Column(name = "academy_Name")
     private String academyName;
 
