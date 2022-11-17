@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="insertStudentInformation" method="post" th:object="${object}">
+        <input type="text" placeholder="이름" name ="name">
+        <input type="text" placeholder="나이" name ="age">
+        <input type="text" placeholder="연락처" name ="tel">
+        <input type="text" placeholder="이메일" name ="email">
+
+
+        <button type="submit">등록</button>
+
+    </form>
+
+    <form action="insertAcademyInformation" method="post" th:object="${object}">
+
+        <input type="text" placeholder="학원명" name ="academyName">
+
+    </form>
+</body>
+</html>
