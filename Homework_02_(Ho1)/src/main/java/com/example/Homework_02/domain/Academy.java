@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 @Getter
 @Entity
 public class Academy {
+
 
     @OneToMany(mappedBy = "academy") // ** 1(이 클래스):N(학생들) 관계
                                      // ** 아래 객체는 Academy타입으로 만들어진 객체, academy와 연결된다
@@ -24,6 +26,7 @@ public class Academy {
     private long id;
 
 
+
     @Column(name = "academy_Name")
     private String academyName;
 
@@ -31,6 +34,11 @@ public class Academy {
     public Academy(String academyName){
         this.academyName = academyName;
     }
+
+    public void addStudent(Student student){
+        this.students.add(student);
+    }
+
 
 
 }

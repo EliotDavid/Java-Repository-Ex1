@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Repository
-public class StudentRepository {
+public class RelationRepository {
 
     @PersistenceContext
     private EntityManager em;

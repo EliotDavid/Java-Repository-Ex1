@@ -2,22 +2,18 @@ package com.example.Homework_02.controller;
 
 import com.example.Homework_02.dto.AcademyDto;
 import com.example.Homework_02.dto.StudentDto;
-import com.example.Homework_02.service.StudentService;
+import com.example.Homework_02.service.RelationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import javax.management.relation.RelationService;
-import javax.transaction.Transactional;
 
 
 @Controller
 public class RelationController {
 
     @Autowired
-    private StudentService studentService;
+    private RelationService studentService;
 
     @GetMapping("insertInformation")
     public String index(){
