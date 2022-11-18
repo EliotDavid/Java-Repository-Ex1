@@ -1,0 +1,37 @@
+# spring:
+ # datasource:
+# url: jdbc:h2:tcp://localhost/~/test # h2콘솔에 있는 jdbc url과 동일하게 적어줘야됨
+#   username: sa # username도 h2콘솔에 있는 username과 동일하게 적어줘야됨
+#   password: # password는 없으니 패스
+#   driver-class-name: org.h2.Driver #h2콘솔에 있는 드라이버 클래스 이름과 동일하게 적어줘야함
+
+# jpa:
+#   hibernate:
+#     ddl-auto: create #새롭게 만들 때 마다 생성하겠다라는 뜻
+#   properties:
+#       hibernate:
+#         format_sql: true
+
+
+# logging:
+#   level:
+#     org.hibernate.SQL: debug
+
+
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug
