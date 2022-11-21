@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 @Repository
 public class RelationRepository {
 
-    @PersistenceContext
+    @PersistenceContext // ** 얘는 무조건 있어야함
     private EntityManager em;
 
     public void insertStudentInfo(Student std){
