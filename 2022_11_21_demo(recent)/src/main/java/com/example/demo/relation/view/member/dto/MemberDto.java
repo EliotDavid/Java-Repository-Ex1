@@ -18,7 +18,8 @@ public class MemberDto {
     @NotEmpty
     private String memberName;
 
-
+    @NotEmpty
+    private String academyName;
 
 
     //private Academy academy;
