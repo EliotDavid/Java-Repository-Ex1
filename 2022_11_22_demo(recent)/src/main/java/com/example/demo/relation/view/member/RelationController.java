@@ -7,6 +7,7 @@ import com.example.demo.relation.domain.service.MemberService;
 import com.example.demo.relation.domain.service.OrderService;
 import com.example.demo.relation.view.member.dto.MemberDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("/members") // ** 이렇게 해주는 이유는 도엠인 설계 구조로 만들기 위해서임 // 어떤 기능은 어디에 어떤 기능은 어디에 이렇게 나눠서 보관함
@@ -23,8 +25,10 @@ import java.util.List;
                             // ** 밑에 겟멥핑에서 리턴해주는 members/newMemberForm하고는 상관없다고 함
 @RequiredArgsConstructor
 @Controller
-public class RelationController {
+public class RelationController{
 
+
+    //private final Member member;
     private final MemberService memberService;
     private final AcademyRepository academyRepository;
 
@@ -50,6 +54,26 @@ public class RelationController {
 
         List<Academy> all = academyRepository.findAll();
         System.out.println(all.size());
+
+        /*
+        List<Member> members = new ArrayList<>();
+
+        for(Member element : members) {
+            for(int a = 0; a < members.size(); ++a){
+                for(int b = 1; a < members.size(); ++b){
+                     if (){
+
+                }
+            }
+
+
+                System.out.println("이미 존재하는 아이디입니다.");
+            } else if (members.equals(a) != members.equals(b)) {
+                System.out.println("정상적으로 등록 가능한 아이디입니다.");
+            }
+        }
+        */
+
         boolean check = true;
 
         // List<Academy> all에 아무것도 없으면 이 반복문을 통해 DB에 아무것도 안 들어가짐
@@ -62,11 +86,13 @@ public class RelationController {
             }
         }
 
+
         if(check){ // ** 안 같으면 dto로 받은 아카데미이름을 아카데미 엔티티에 집어넣어라/ 같으면 집어넣어라인데?
             Academy academy = new Academy(dto.getAcademyName());// ** dto에서 저장된 값을 아카데미 엔티티에 넣었으므로 정보 보존성 지켜짐
-            memberService.insert(new Member(dto.getMemberName(), academy)); // ** 얘가 그러면 memberEntity에 다 넣는거네
+            memberService.insert(new Member(dto.getMemberName(), dto.getLoginId(), dto.getPassword(), academy)); // ** 얘가 그러면 memberEntity에 다 넣는거네
             // ** 멤버 레파지토리에 넣는 코드임
         }
+
 
         return "redirect:/"; // ** 그리고 레파지토리에 넣고 메인 홈으로 빠지는 코드
         //List<Academy> academies = academyRepository.findByName(dto.getAcademyName());
@@ -83,4 +109,7 @@ public class RelationController {
 
 
     }
+
+
+
 }
