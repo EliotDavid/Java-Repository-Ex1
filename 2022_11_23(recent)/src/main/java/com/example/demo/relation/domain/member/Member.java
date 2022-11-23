@@ -15,6 +15,13 @@ public class Member {
     @Id @GeneratedValue
     private Long id;
 
+    @Column(name = "login_id")
+    private String loginId;
+
+    @Column(name = "login_id")
+    private String loginId;
+
+
     @Column(name = "member_name")
     private String memberName;
 
