@@ -55,19 +55,20 @@ public class RelationController {
         // List<Academy> all에 아무것도 없으면 이 반복문을 통해 DB에 아무것도 안 들어가짐
         for(Academy element : all){
             if(element.getAcademyName().equals(dto.getAcademyName())) // ** 객체 안의 값이 같나요? 하고 물어보는 메서드
-            {
+            { // ** 아카데미 엔티티에 있는 값과 뷰에서 받은 겂을 memberdto로 저장한 아카데미이름과 같냐고 묻는 의도임
                 //System.out.println("element : " + element.getAcademyName());
                 //System.out.println("dto : " + dto.getAcademyName());
                 //check = false;
             }
         }
 
-        if(check){
-            Academy academy = new Academy(dto.getAcademyName());
-            memberService.insert(new Member(dto.getMemberName(), academy));
+        if(check){ // ** 안 같으면 dto로 받은 아카데미이름을 아카데미 엔티티에 집어넣어라/ 같으면 집어넣어라인데?
+            Academy academy = new Academy(dto.getAcademyName());// ** dto에서 저장된 값을 아카데미 엔티티에 넣었으므로 정보 보존성 지켜짐
+            memberService.insert(new Member(dto.getMemberName(), academy)); // ** 얘가 그러면 memberEntity에 다 넣는거네
+            // ** 멤버 레파지토리에 넣는 코드임
         }
 
-        return "redirect:/";
+        return "redirect:/"; // ** 그리고 레파지토리에 넣고 메인 홈으로 빠지는 코드
         //List<Academy> academies = academyRepository.findByName(dto.getAcademyName());
         // ** 사실 이거를 리스트로 받아올 필요없는데 동일한 학원이 존재할 수 있으니까 이렇게 받아온거임
         // ** 예를 들면 받아왔는데 얘가
