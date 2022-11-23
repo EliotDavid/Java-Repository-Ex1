@@ -19,6 +19,7 @@ public class AcademyRepository {
 
     public List<Academy> findAll() {
         return em.createQuery("select a from Academy a", Academy.class).getResultList();
+
     }
     /*
     public List<Academy> findByName(String academyName) {
@@ -27,4 +28,6 @@ public class AcademyRepository {
                 .getResultList();
     }
     */
+
+
 }

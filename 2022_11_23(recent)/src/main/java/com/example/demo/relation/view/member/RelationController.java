@@ -30,8 +30,11 @@ public class RelationController {
     @PostMapping("/new")
     public String save(@Valid @ModelAttribute("form") MemberDto dto) {
 
-        List<Academy> all = academyRepository.findAll();
+        List<> all = academyRepository.findAll();
         System.out.println(all.size());
+
+
+
 
 
         // List<Academy> all 아무것도 없음.

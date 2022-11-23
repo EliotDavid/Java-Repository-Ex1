@@ -19,4 +19,11 @@ public class MemberService {
     {
         memberRepository.save(member);
     }
+
+    @Transactional
+    public void findByName(String academyName)
+
+    {
+        memberRepository.findByName(academyName);
+    }
 }
