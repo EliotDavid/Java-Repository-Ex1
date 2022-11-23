@@ -33,6 +33,13 @@ public class RelationController {
         List<Academy> all = academyRepository.findAll();
         System.out.println(all.size());
 
+        if(all.isEmpty())
+
+        for(int i = 0; i < all.size(); ++i){
+
+            if(all.get(i).getAcademyName().equals(dto.getAcademyName());
+        }
+
 
         // List<Academy> all 아무것도 없음.
         for (Academy element : all) {
