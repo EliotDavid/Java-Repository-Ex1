@@ -50,29 +50,13 @@ public class RelationController{
     public String save(@Valid @ModelAttribute("form") MemberDto dto) { // ** @Valid, @Validated 둘이 똑같은거라고 함 어떤걸 써도 상관없다고 함
         //memberService.insert(
                 //new Member( dto.getMemberName()) );
-
+        // 위 코드는 Member member = new Member(dto.getMemberName(), academy)랑 같은 코드임
 
         List<Academy> all = academyRepository.findAll();
         System.out.println(all.size());
 
-        /*
-        List<Member> members = new ArrayList<>();
-
-        for(Member element : members) {
-            for(int a = 0; a < members.size(); ++a){
-                for(int b = 1; a < members.size(); ++b){
-                     if (){
-
-                }
-            }
 
 
-                System.out.println("이미 존재하는 아이디입니다.");
-            } else if (members.equals(a) != members.equals(b)) {
-                System.out.println("정상적으로 등록 가능한 아이디입니다.");
-            }
-        }
-        */
 
         boolean check = true;
 
@@ -108,6 +92,28 @@ public class RelationController{
         //System.out.println(byId.getId() + ": " + byId.getAcademyName());
 
 
+    }
+
+    public String checkId(){
+        // academy = academies.get(0); : get(0) 뜻 : 아무것도 안 넣겠다는 뜻이라는데
+        List<Member> members = new ArrayList<>();
+
+        for(Member element : members) {
+            for(int a = 0; a < members.size(); ++a){
+                for(int b = 1; a < members.size(); ++b){
+                    if (members.){
+
+                    }
+                }
+
+
+                System.out.println("이미 존재하는 아이디입니다.");
+            } else if (members.equals(a) != members.equals(b)) {
+                System.out.println("정상적으로 등록 가능한 아이디입니다.");
+            }
+        }
+        // ======
+        return "redirect:/";
     }
 
 
